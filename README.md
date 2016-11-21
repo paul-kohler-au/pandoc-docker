@@ -14,6 +14,19 @@
                     native, odt, opendocument, opml, org, pdf*, plain, revealjs,
                     rst, rtf, s5, slideous, slidy, texinfo, textile
                     [*for pdf output, use latex or beamer and -o FILENAME.pdf
+## Build
+
+Build the Dockerfile into an image and tag it:
+
+    docker build --tag 'jagregory/pandoc:latest' .
+
+## Test
+
+Try converting the readme markdown file into a HTML5 document:
+
+    docker run -v `pwd`:/source jagregory/pandoc -f markdown -t html5 README.md -o README.html
+
+## Using the docker container
 
 A `/source` directory is created in the container, which can be mapped for use with relative file paths. Pandoc will always be run from the `/source` directory in the container.
 
